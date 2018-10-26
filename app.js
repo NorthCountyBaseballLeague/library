@@ -21,10 +21,8 @@ const nav = [
 ];
 
 const bookRouter = require('./src/routes/bookRoutes')(nav);
-// const authorRouter = require('./src/routes/authorRoutes')(nav);
 
 app.use('/books', bookRouter);
-// app.use('/authors', authorRouter);
 app.get('/', (req, res) => {
   res.render(
     'index',
