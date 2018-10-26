@@ -22,10 +22,20 @@ const config = {
 sql.connect(config).catch(err => debug(err));
 
 app.use(morgan('tiny'));
+
+app.use((req, res, next) => {
+  debug('my middleware');
+  next();
+});
+
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
+app.use('/books/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')));
+app.use('/books/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
+app.use('/books/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
+app.use('/books/css', express.static(path.join(__dirname, '/public/css')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
