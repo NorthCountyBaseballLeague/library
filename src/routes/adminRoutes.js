@@ -54,7 +54,7 @@ function router() {
       const url = 'mongodb://localhost:27017';
       const dbName = 'libraryApp';
 
-      (async function mongo() {
+      (async function mongo () {
         let client;
         try {
           client = await MongoClient.connect(url);
